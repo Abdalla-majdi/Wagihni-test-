@@ -15,6 +15,10 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Prevent double submissions
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
     
     try {
@@ -29,11 +33,12 @@ const Contact: React.FC = () => {
         }
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', service: 'Strategy', message: '' });
       } else {
-        const data = await response.json();
         if (data.errors) {
             const errorMessages = data.errors.map((err: any) => err.message).join(", ");
             alert(`Submission failed: ${errorMessages}`);

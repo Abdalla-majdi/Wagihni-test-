@@ -35,18 +35,14 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#contact">
-              <Button variant="primary" className="group">
-                Book a Consultation
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
-            <a href="#services">
-              <Button variant="secondary">
-                Explore Services
-                <ChevronRight className="ml-2 w-4 h-4 text-slate-400" />
-              </Button>
-            </a>
+            <Button variant="primary" href="#contact" className="group">
+              Book a Consultation
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button variant="secondary" href="#services">
+              Explore Services
+              <ChevronRight className="ml-2 w-4 h-4 text-slate-400" />
+            </Button>
           </div>
         </motion.div>
 
